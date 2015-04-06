@@ -1,11 +1,11 @@
 # File paths.
-TEST_FILE = test.ml
-EXEC_FILE = test.out
-COVERAGE_DIR = coverage/
+TEST_FILE := test.ml
+EXEC_FILE := test.out
+COVERAGE_DIR := coverage/
 MODULES_DIR := $(shell ls -d */ | grep -v $(COVERAGE_DIR))
 
 # Use `ocamlopt` to compile to native code.
-OO = ocamlfind ocamlopt -g
+OO := ocamlfind ocamlopt -g
 
 # Build, run the tests, and generate coverage reports for all modules.
 coverage: test
@@ -43,7 +43,7 @@ clean-bisect:
 	$(OO) -c -I $* -package bisect -syntax camlp4o $*/$*.ml
 # Compile the test .ml to .cmx.
 	$(OO) -c -I $* -package bisect,oUnit -syntax camlp4o $*/$(TEST_FILE)
-# Link the module .cmx and test .cmx into a.out.
+# Link the module .cmx and test .cmx into an executable.
 	$(OO) -I $* -linkpkg -o $*/$(EXEC_FILE) -package bisect,oUnit $*/$*.cmx $*/test.cmx
 
 # Every target is PHONY except for %/$(EXEC_FILE).
