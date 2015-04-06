@@ -1,0 +1,8 @@
+.DS_Store
+*.cache
+*.cm*
+*.log
+*.mli
+*.o
+*.out
+coverage/
