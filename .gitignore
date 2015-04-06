@@ -1,4 +1,5 @@
 .DS_Store
+*.annot
 *.cache
 *.cm*
 *.log
