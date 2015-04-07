@@ -5,7 +5,7 @@ let ht = Hashtbl.create 100
 let _ = Hashtbl.add ht 1 (big_int_of_int 0)
 let _ = Hashtbl.add ht 2 (big_int_of_int 1)
 
-let fib n : big_int =
+let fib (n:int) : big_int =
   if n < 1 then
     failwith "n < 1"
   else
