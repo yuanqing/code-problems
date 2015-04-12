@@ -2,7 +2,7 @@ open Big_int
 open Fibonacci
 open OUnit2
 
-let test = ignore (run_test_tt_main ("fib n" >::: [
+let () = run_test_tt_main ("fib n" >::: [
 
   "n < 1" >:: (fun _ ->
     assert_raises (Failure "n < 1") (fun () -> fib 0)
@@ -29,4 +29,4 @@ let test = ignore (run_test_tt_main ("fib n" >::: [
         (fib 99))
   );
 
-]))
+])

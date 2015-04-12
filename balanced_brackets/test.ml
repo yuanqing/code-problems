@@ -1,7 +1,7 @@
 open Balanced_brackets
 open OUnit2
 
-let test = ignore (run_test_tt_main ("balanced_brackets str" >::: [
+let () = run_test_tt_main ("balanced_brackets str" >::: [
 
   "balanced" >:: (fun _ ->
     assert (balanced_brackets "[()]{}")
@@ -15,4 +15,4 @@ let test = ignore (run_test_tt_main ("balanced_brackets str" >::: [
     assert (balanced_brackets "(" = false)
   );
 
-]))
+])

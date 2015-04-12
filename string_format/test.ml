@@ -1,7 +1,7 @@
 open OUnit2
 open String_format
 
-let test = ignore (run_test_tt_main ("format str xs" >::: [
+let () = run_test_tt_main ("format str xs" >::: [
 
   "no `xs`" >:: (fun _ ->
     assert_equal "{0}" (format "{0}" [])
@@ -21,4 +21,4 @@ let test = ignore (run_test_tt_main ("format str xs" >::: [
         ["{0}"; "{1}"; "{2}"])
   );
 
-]))
+])
