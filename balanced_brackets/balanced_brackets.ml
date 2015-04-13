@@ -12,8 +12,10 @@ let balanced_brackets (str:string) : bool =
   (* `stk` is for storing opening brackets encountered as we iterate over the
      characters in `str` *)
   let stk = Stack.create () in
+  (* Iterate over the characters in `str`. Throw `Unbalanced` if `str`
+     has unbalanced brackets. *)
   try
-    let f (c:char) : unit =
+    let f c =
       match c with
         | '(' | '[' | '{' ->
           (* Push `c` onto the `stk` if it is an opening bracket. *)
@@ -21,7 +23,7 @@ let balanced_brackets (str:string) : bool =
         | ')' | ']' | '}' ->
           (* Otherwise, pop from the `stk` and check that the `popped`
              character is the opening bracket of `c`. If the brackets do not
-             corresponding or if `stk` is empty, we immediately raise an
+             corresponding or if `stk` is empty, we immediately throw an
              `Unbalanced` exception. *)
           begin
           try
@@ -33,12 +35,11 @@ let balanced_brackets (str:string) : bool =
           end
         | _ -> ()
       in
-    (* Iterate over the characters in `str`. Throws `Unbalanced` if `str`
-       has unbalanced brackets. *)
-    let _ = String.iter f str in
-    (* If we have not thrown `Unbalanced` at this point, all that's left is
-       to check that `stk` is empty; `stk` being non-empty implies that some
-       opening brackets did not have corresponding closing brackets. *)
+    let () = String.iter f str in
+    (* If we have not thrown an `Unbalanced` exception at this point, all
+       that's left is to check that `stk` is empty. `stk` being non-empty
+       implies that some opening brackets did not have corresponding closing
+       brackets. *)
     Stack.is_empty stk
   with Unbalanced ->
     false

@@ -16,7 +16,7 @@ let () = run_test_tt_main ("format str xs" >::: [
         ["foo"; "bar"; "baz"])
   );
 
-  "resulting string is the original `str`" >:: (fun _ ->
+  "resulting string is the same as the original `str`" >:: (fun _ ->
     assert_equal "{0} {1}, {0} {2}" (format "{0} {1}, {0} {2}"
         ["{0}"; "{1}"; "{2}"])
   );
