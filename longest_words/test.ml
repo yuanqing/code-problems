@@ -13,7 +13,8 @@ let () = run_test_tt_main ("longest_words sentence" >::: [
   );
 
   "multiple words, no repeats" >:: (fun _ ->
-    assert_equal ["long"; "word"] (longest_words "A long word");
+    let words = longest_words "A long word" in
+      assert (words = ["long"; "word"] || words = ["word"; "long"]);
     assert_equal ["sentence"] (longest_words "A short sentence");
   );
 
