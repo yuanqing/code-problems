@@ -27,12 +27,12 @@ let balanced_brackets : string -> bool =
                corresponding or if `stk` is empty, we immediately throw an
                `Unbalanced` exception. *)
             begin
-            try
-              let popped = Stack.pop stk in
-              if c != Brackets.find popped br then
+              try
+                let popped = Stack.pop stk in
+                if c != Brackets.find popped br then
+                  raise Unbalanced
+              with Stack.Empty ->
                 raise Unbalanced
-            with Stack.Empty ->
-              raise Unbalanced
             end
           | _ -> ()
         in
