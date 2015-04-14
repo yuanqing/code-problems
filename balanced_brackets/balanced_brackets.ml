@@ -1,9 +1,9 @@
 exception Unbalanced
-module Brackets = Map.Make (Char)
 
 let balanced_brackets : string -> bool =
   (* `br` is a map of each opening bracket to its corresponding closing
      bracket. *)
+  let module Brackets = Map.Make (Char) in
   let br = Brackets.empty in
   let br = Brackets.add '(' ')' br in
   let br = Brackets.add '[' ']' br in
@@ -12,8 +12,9 @@ let balanced_brackets : string -> bool =
     (* `stk` is for storing opening brackets encountered as we iterate over the
        characters in `str` *)
     let stk = Stack.create () in
-    (* Iterate over the characters in `str`. Throw `Unbalanced` if `str`
-       has unbalanced brackets. *)
+    (* Iterate over the characters in `str`. Throw `Unbalanced` to
+       short-circuit the execution the moment we find that `str` has unbalanced
+       brackets. *)
     try
       let f c =
         match c with
