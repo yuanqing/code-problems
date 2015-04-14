@@ -19,11 +19,8 @@ let longest_words (sentence:string) : string list =
       (* Add `word` into `ht` only if it's lowercase representation doesn't
          already exist in `ht`. *)
       let lowercase_word = String.lowercase word in
-      try
-        let _ = Hashtbl.find ht lowercase_word in ()
-      with Not_found ->
-        Hashtbl.add ht lowercase_word word
-      in
+      if Hashtbl.mem ht lowercase_word = false then
+        Hashtbl.add ht lowercase_word word in
   let () = List.iter fn words in
   (* Return the longest words as a list. *)
   let fn _ word acc =
