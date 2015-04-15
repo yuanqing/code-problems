@@ -3,7 +3,7 @@ let insertion_sort (compare:'a -> 'a -> int) (xs:'a list) : 'a list =
     match ys with
       | [] -> [x]
       | y::ys as zs when (compare x y < 0) ->
-        (* `compare` returning a negative value means that `x` is less than
+        (* `compare` returning a negative value means that `x` is smaller than
            `y`. So we place `x` in front of both `y` and `ys`. *)
         x::zs
       | y::ys ->
