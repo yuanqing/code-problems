@@ -1,9 +1,9 @@
-let bubble_sort (comp:'a -> 'a -> int) (xs:'a list) : 'a list =
+let bubble_sort (compare:'a -> 'a -> int) (xs:'a list) : 'a list =
   let rec bubble xs =
     match xs with
       | [] -> []
-      | x::y::xs when (comp x y > 0) ->
-        (* `comp` returning a positive value means that `x` is greater than
+      | x::y::xs when (compare x y > 0) ->
+        (* `compare` returning a positive value means that `x` is greater than
            `y`. We swap the positions of `x` and `y`, and call `bubble` on the rest of the list. *)
         y::x::(bubble xs)
       | x::xs ->

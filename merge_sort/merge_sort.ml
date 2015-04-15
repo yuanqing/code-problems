@@ -1,16 +1,16 @@
-let merge_sort (comp:'a -> 'a -> int) (xs:'a list) : 'a list =
+let merge_sort (compare:'a -> 'a -> int) (xs:'a list) : 'a list =
   let rec merge xs ys =
     match xs, ys with
       | xs, [] -> xs
       | [], ys -> ys
-      | x::xs, y::_ when comp x y < 0 ->
-        (* `comp` returning a negative value means that `x` is less than `y`.
-           So prepend `x` to the result of merging the rest of the two
+      | x::xs, y::_ when compare x y < 0 ->
+        (* `compare` returning a negative value means that `x` is less than
+           `y`. So prepend `x` to the result of merging the rest of the two
            lists. *)
         x::(merge xs ys)
       | xs, y::ys ->
-        (* Otherwise, prepend `y` to the result of merging the rest
-           of the two lists. *)
+        (* Otherwise, prepend `y` to the result of merging the rest of the two
+           lists. *)
         y::(merge xs ys) in
   let split xs =
     (* Split `xs` into two halves. *)
@@ -25,8 +25,8 @@ let merge_sort (comp:'a -> 'a -> int) (xs:'a list) : 'a list =
       | [] -> []
       | [x] -> xs
       | _ ->
-        (* Split `xs` into two halves, calling `aux` on each half and merging
-           the two halves. *)
+        (* Split `xs` into two halves, call `aux` on each half and merge the
+           two halves. *)
         let ys, zs = split xs in
         merge (aux ys) (aux zs) in
   aux xs
