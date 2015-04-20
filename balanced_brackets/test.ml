@@ -4,15 +4,15 @@ open OUnit2
 let () = run_test_tt_main ("balanced_brackets str" >::: [
 
   "balanced" >:: (fun _ ->
-    assert (balanced_brackets "[()]{}")
+    assert_equal true  (balanced_brackets "[()]{}")
   );
 
   "unbalanced" >:: (fun _ ->
-    assert (balanced_brackets "[(]{)}" = false)
+    assert_equal false (balanced_brackets "[(]{)}")
   );
 
   "unbalanced, unclosed" >:: (fun _ ->
-    assert (balanced_brackets "(" = false)
+    assert_equal false (balanced_brackets "(")
   );
 
 ])
