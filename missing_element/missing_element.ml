@@ -4,7 +4,7 @@ let missing_element (xs:'a list) (ys:'a list) : 'a =
   let _ = List.iter fn ys in
   let rec aux xs =
     match xs with
-      | [] -> failwith "impossible"
+      | [] -> failwith "invalid input"
       | x::xs ->
         if not (Hashtbl.mem ht x) then
           x

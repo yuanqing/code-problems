@@ -4,12 +4,12 @@ open OUnit2
 let () = run_test_tt_main ("missing_element xs ys" >::: [
 
   "`xs` and `ys` are identical" >:: (fun _ ->
-    assert_raises (Failure "impossible")
+    assert_raises (Failure "invalid input")
         (fun () -> missing_element [42] [42])
   );
 
   "`ys` has more elements" >:: (fun _ ->
-    assert_raises (Failure "impossible")
+    assert_raises (Failure "invalid input")
         (fun () -> missing_element [42] [42; 42])
   );
 
