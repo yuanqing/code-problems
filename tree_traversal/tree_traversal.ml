@@ -75,3 +75,45 @@ let in_order (x:'a tree) : 'a list =
         the value of the current node in `vs`. *)
         aux l (r::rs) (v::vs) in
   aux x [] []
+
+let level_order (x:'a tree) : 'a list =
+  (* Initialise a `q` containing `x` ie. the root. *)
+  let q = Queue.create () in
+  let _ = Queue.add x q in
+  let rec aux q =
+    if Queue.is_empty q then
+      []
+    else
+      (* Remove the head of the queue, prepend its value to the result and
+      add its left and right children to the queue. *)
+      match Queue.take q with
+        | Empty -> aux q
+        | Node (v, l, r) ->
+          let _ = Queue.add l q in
+          let _ = Queue.add r q in
+          v::(aux q) in
+  aux q
+
+let level_order_list (x:'a tree) : 'a list list =
+  (* Initialise a `q` containing `x` ie. the root. *)
+  let q = Queue.create () in
+  let _ = Queue.add x q in
+  let rec aux acc q curr next =
+    if Queue.is_empty q then
+      [acc]
+    else
+      (* Remove the head of the queue, prepend its value to the result and
+      add its left and right children to the queue. *)
+      match Queue.take q with
+        | Empty -> aux acc q curr next
+        | Node (v, l, r) ->
+          let _ = Queue.add r q in
+          let _ = Queue.add l q in
+          let curr = curr - 1 in
+          let next = next + 2 in
+          if curr = 0 then
+            let curr, next = next, 0 in
+            (v::acc)::(aux [] q curr next)
+          else
+            aux (v::acc) q curr next in
+  aux [] q 1 0
