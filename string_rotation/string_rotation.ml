@@ -6,7 +6,7 @@ let string_rotation (x:string) (y:string) : bool =
       let len = String.length x in
       let rec aux z =
         let z = (String.sub z 1 (len-1)) ^ String.sub z 0 1 in
-        match z with
+        match () with
           | _ when z = x -> false (* We are back at the original string. *)
           | _ when z = y -> true
           | _ -> aux z in
