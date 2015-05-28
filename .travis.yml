@@ -10,4 +10,4 @@ install:
   - opam install bisect ounit
 
 script:
-  - make
+  - cd src && make
