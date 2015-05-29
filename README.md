@@ -1,14 +1,81 @@
 # code-problems [![Build Status](https://img.shields.io/travis/yuanqing/code-problems.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/code-problems)
 
-> Working through assorted code problems in [OCaml](https://ocaml.org/).
+> Working through code problems in [OCaml](https://ocaml.org/).
 
-Problems are in [`src`](https://github.com/yuanqing/code-problems/tree/master/src). Each folder contains a problem statement, a solution program and a unit test.
+Or, [parlour tricks](https://signalvnoise.com/posts/3071-why-we-dont-hire-programmers-based-on-puzzles-api-quizzes-math-riddles-or-other-parlor-tricks) for the technical interview rigmarole.
+
+## Problems
+
+See the [`src`](src) directory.
+
+Each problem contains a description, a solution program, and a test.
+
+### String
+
+- [Anagram detection](src/anagram_detection)
+- [Balanced brackets](src/balanced_brackets)
+- [Byte format](src/byte_format)
+- [Combine two strings](src/combine_two_strings)
+- [CSV parse](src/csv_parse)
+- [First non-repeated character](src/first_non_repeated_character)
+- [Integer length](src/integer_length)
+- [Largest palindrome](src/largest_palindrome)
+- [Money format](src/money_format)
+- [Number format](src/number_format)
+- [Remove duplicate characters](src/remove_duplicate_characters)
+- [Reverse words](src/reverse_words)
+- [String format](src/string_format)
+- [String permutations](src/string_permutations)
+- [String rotation](src/string_rotation)
+
+### Math
+
+- [Factorial](src/factorial)
+- [Fibonacci](src/fibonacci)
+- [Prime number](src/prime_number)
+
+### Array
+
+- [Array pair sum](src/array_pair_sum)
+- [Binary search](src/binary_search)
+- [Even-occurring element](src/even_occurring_element)
+- [Integer difference](src/integer_difference)
+- [Largest continuous sum](src/largest_continuous_sum)
+- [Longest common prefix](src/longest_common_prefix)
+- [Longest words](src/longest_words)
+- [Missing element](src/missing_element)
+- [Odd-occurring element](src/odd_occurring_element)
+- [Sum of list plus one](src/sum_of_list_plus_one)
+- [Sum of multiples](src/sum_of_multiples)
+
+### Sorting
+
+- [Bubble sort](src/bubble_sort)
+- [Insertion sort](src/insertion_sort)
+- [Merge sort](src/merge_sort)
+- [Quick sort](src/quick_sort)
+- [Selection sort](src/selection_sort)
+
+### Tree
+
+- [Tree traversal](src/tree_traversal)
+
+### Other
+
+- [Once](src/once)
+- [Queen threatens king](src/queen_threatens_king)
+
+## Notes
+
+- Memoise/cache all the things! (Or at least when it is possible to do so, anyway.) The [`Hashtbl`](http://caml.inria.fr/pub/docs/manual-ocaml/libref/Hashtbl.html) module is your friend. Example: [factorial](src/factorial).
+- If we&rsquo;re writing a recursive function (which is most of the time), be sure to write it such that it is [tail recursive](https://ocaml.org/learn/tutorials/if_statements_loops_and_recursion.html#Tailrecursion). Example: [tree traversal](src/tree_traversal).
+- Short-circuit execution by throwing an exception. Example: [balanced brackets](src/balanced_brackets).
 
 ## Usage
 
 ### Set up
 
-First, install [ocamlfind](https://opam.ocaml.org/packages/ocamlfind/ocamlfind.1.5.5/), [oUnit](http://opam.ocaml.org/packages/ounit/ounit.2.0.0/), and [Bisect](http://opam.ocaml.org/packages/bisect/bisect.1.3/) with [OPAM](https://opam.ocaml.org):
+First, install [ocamlfind](https://opam.ocaml.org/packages/ocamlfind/ocamlfind.1.5.5/), [oUnit](https://opam.ocaml.org/packages/ounit/ounit.2.0.0/), and [Bisect](https://opam.ocaml.org/packages/bisect/bisect.1.3/) with [OPAM](https://opam.ocaml.org):
 
 ```
 $ opam install ocamlfind ounit bisect
@@ -31,13 +98,17 @@ Use `make coverage` to also generate test coverage reports.
 
 ### Run a particular test
 
-For example, for the [`binary_search`](https://github.com/yuanqing/code-problems/tree/master/src/binary_search) problem:
+&hellip;for example, for the [binary search](src/binary_search) problem:
 
 ```
 $ make binary_search/test
 ```
 
-Use `make binary_search/coverage` instead to also generate test coverage reports.
+Use `make binary_search/coverage` to also generate test coverage reports.
+
+## Known issues
+
+- The [Bisect](http://bisect.x9c.fr) test coverage does not appear to be completely accurate.
 
 ## Credit
 
