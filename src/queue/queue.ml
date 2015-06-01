@@ -1,17 +1,17 @@
 exception Empty
 
-type 'a queue = ('a list) ref
+type 'a t = ('a list) ref
 
-let create () : 'a queue = ref []
+let create () : 'a t = ref []
 
-let enqueue (x:'a) (s:'a queue) : unit =
+let enqueue (x:'a) (s:'a t) : unit =
   let rec aux s =
     match s with
       | [] -> [x]
       | x::xs -> x::(aux xs) in
   s := aux !s
 
-let poll (s:'a queue) : 'a =
+let poll (s:'a t) : 'a =
   match (!s) with
     | [] -> raise Empty
     | x::xs ->

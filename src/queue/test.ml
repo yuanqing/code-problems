@@ -4,7 +4,7 @@ open OUnit2
 let () = run_test_tt_main ("queue" >::: [
 
   "enqueue, poll" >:: (fun _ ->
-    let q : int queue = create () in
+    let q : int t = create () in
     assert_raises Empty (fun () -> poll q);
     enqueue 1 q; (* [1] *)
     enqueue 2 q; (* [1; 2] *)

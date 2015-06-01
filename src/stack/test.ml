@@ -4,7 +4,7 @@ open OUnit2
 let () = run_test_tt_main ("stack" >::: [
 
   "push, pop" >:: (fun _ ->
-    let s : int stack = create () in
+    let s : int t = create () in
     assert_raises Empty (fun () -> pop s);
     push 1 s; (* [1] *)
     push 2 s; (* [2; 1] *)

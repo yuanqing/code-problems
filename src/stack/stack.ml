@@ -1,13 +1,13 @@
 exception Empty
 
-type 'a stack = ('a list) ref
+type 'a t = ('a list) ref
 
-let create () : 'a stack = ref []
+let create () : 'a t = ref []
 
-let push (x:'a) (s:'a stack) : unit =
+let push (x:'a) (s:'a t) : unit =
   s := x::(!s)
 
-let pop (s:'a stack) : 'a =
+let pop (s:'a t) : 'a =
   match (!s) with
     | [] -> raise Empty
     | x::xs ->
