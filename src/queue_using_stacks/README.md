@@ -1,3 +1,3 @@
-# Stack using queues
+# Queue using stacks
 
-Implement a stack using two queues.
+Implement a queue using two stacks.
