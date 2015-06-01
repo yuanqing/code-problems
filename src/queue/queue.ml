@@ -1,5 +1,3 @@
-exception Empty
-
 type 'a t = ('a list) ref
 
 let create () : 'a t = ref []
@@ -13,7 +11,7 @@ let enqueue (x:'a) (s:'a t) : unit =
 
 let poll (s:'a t) : 'a =
   match (!s) with
-    | [] -> raise Empty
+    | [] -> failwith "poll"
     | x::xs ->
       let _ = s := xs in
       x

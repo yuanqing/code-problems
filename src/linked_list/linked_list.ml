@@ -22,11 +22,11 @@ let to_list (xs:'a t) : 'a list =
 
 let nth (n:int) (xs:'a t) : 'a =
   if (n < 0) then
-    raise (Failure "nth")
+    failwith "nth"
   else
     let rec aux i xs =
       match xs with
-        | None -> raise (Failure "nth")
+        | None -> failwith "nth"
         | Some (y, ys) ->
           if i == n then
             y
@@ -52,7 +52,7 @@ let add_last (x:'a) (xs:'a t) : 'a =
 
 let remove_first (xs:'a t) : 'a =
   match !xs with
-    | None -> raise (Failure "remove_first")
+    | None -> failwith "remove_first"
     | Some (y, ys) ->
       let () =
         xs := ys in
@@ -62,7 +62,7 @@ let remove_last (xs:'a t) : 'a =
   let rec aux ys =
     match ys with
       | None -> (* empty list *)
-        raise (Failure "remove_last")
+        failwith "remove_last"
       | Some (y, None) -> (* one item *)
         (y, None)
       | Some (y, Some (z, None)) -> (* two items *)
@@ -77,7 +77,7 @@ let remove_last (xs:'a t) : 'a =
 
 let insert (x:'a) (n:int) (xs:'a t) : 'a =
   if (n < 0) then
-    raise (Failure "insert")
+    failwith "insert"
   else
     let rec aux i xs =
       if i == n then
@@ -86,7 +86,7 @@ let insert (x:'a) (n:int) (xs:'a t) : 'a =
           | y -> Some (x, y)
       else
         match xs with
-          | None -> raise (Failure "insert")
+          | None -> failwith "insert"
           | Some (y, ys) -> Some (y, aux (i+1) ys) in
     let () =
       xs := aux 0 !xs in
