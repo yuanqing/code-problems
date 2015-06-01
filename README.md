@@ -8,7 +8,22 @@ Or, [parlour tricks](https://signalvnoise.com/posts/3071-why-we-dont-hire-progra
 
 See the [`src`](src) directory.
 
-Each problem contains a description, a solution program, and a test.
+Each folder contains the problem description, a solution program, and a test. See [Usage](#usage) for build instructions.
+
+### Data structures
+
+- [Linked list](src/linked_list)
+- [Queue](src/queue)
+- [Stack](src/stack)
+- [Tree traversal](src/tree_traversal)
+
+### Sorting
+
+- [Bubble sort](src/bubble_sort)
+- [Insertion sort](src/insertion_sort)
+- [Merge sort](src/merge_sort)
+- [Quick sort](src/quick_sort)
+- [Selection sort](src/selection_sort)
 
 ### String
 
@@ -48,18 +63,6 @@ Each problem contains a description, a solution program, and a test.
 - [Sum of list plus one](src/sum_of_list_plus_one)
 - [Sum of multiples](src/sum_of_multiples)
 
-### Sorting
-
-- [Bubble sort](src/bubble_sort)
-- [Insertion sort](src/insertion_sort)
-- [Merge sort](src/merge_sort)
-- [Quick sort](src/quick_sort)
-- [Selection sort](src/selection_sort)
-
-### Tree
-
-- [Tree traversal](src/tree_traversal)
-
 ### Other
 
 - [Once](src/once)
@@ -67,15 +70,26 @@ Each problem contains a description, a solution program, and a test.
 
 ## Notes
 
-- Memoise/cache all the things! (Or at least when it is possible to do so, anyway.) The [`Hashtbl`](http://caml.inria.fr/pub/docs/manual-ocaml/libref/Hashtbl.html) module is your friend. Example: [factorial](src/factorial).
-- If we&rsquo;re writing a recursive function (which is most of the time), be sure to write it such that it is [tail recursive](https://ocaml.org/learn/tutorials/if_statements_loops_and_recursion.html#Tailrecursion). Example: [tree traversal](src/tree_traversal).
-- Short-circuit execution by throwing an exception. Example: [balanced brackets](src/balanced_brackets).
+- Memoise/cache all the things! (Or at least when it is possible to do so, anyway.) The [`Hashtbl`](http://caml.inria.fr/pub/docs/manual-ocaml/libref/Hashtbl.html) module is your friend.
+- If we&rsquo;re writing a recursive function (which is most of the time), be sure to write it such that it is [tail recursive](https://ocaml.org/learn/tutorials/if_statements_loops_and_recursion.html#Tailrecursion).
+- Short-circuit execution by throwing an exception.
+- Avoid `ref` if possible.
+- Variable naming conventions:
+  - Lists &mdash; `xs`, `ys`&hellip;
+  - Item in a list &mdash; `x`, `y`&hellip;
+  - Auxiliary recursive functions &mdash; `aux`
+- Annotate top-level functions.
 
 ## Usage
 
+### Pre-requisites
+
+- [OCaml](https://ocaml.org/) 4.02
+- [OPAM](https://opam.ocaml.org) 1.2.0
+
 ### Set up
 
-First, install [ocamlfind](https://opam.ocaml.org/packages/ocamlfind/ocamlfind.1.5.5/), [oUnit](https://opam.ocaml.org/packages/ounit/ounit.2.0.0/), and [Bisect](https://opam.ocaml.org/packages/bisect/bisect.1.3/) with [OPAM](https://opam.ocaml.org):
+First, install [ocamlfind](https://opam.ocaml.org/packages/ocamlfind/ocamlfind.1.5.5/), [oUnit](https://opam.ocaml.org/packages/ounit/ounit.2.0.0/), and [Bisect](https://opam.ocaml.org/packages/bisect/bisect.1.3/) with OPAM:
 
 ```
 $ opam install ocamlfind ounit bisect
@@ -118,4 +132,4 @@ All solution programs in this repository were written by [me](https://github.com
 
 ## License
 
-[MIT](https://github.com/yuanqing/code-problems/blob/master/LICENSE)
+[MIT](LICENSE)
