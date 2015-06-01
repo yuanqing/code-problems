@@ -14,7 +14,9 @@ Each folder contains the problem description, a solution program, and a test. Se
 
 - [Linked list](src/linked_list)
 - [Queue](src/queue)
+- [Queue using stacks](src/queue_using_stacks)
 - [Stack](src/stack)
+- [Stack using queues](src/stack_using_queues)
 - [Tree traversal](src/tree_traversal)
 
 ### Sorting
