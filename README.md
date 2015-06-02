@@ -5,6 +5,8 @@
 Or, [parlour tricks](https://signalvnoise.com/posts/3071-why-we-dont-hire-programmers-based-on-puzzles-api-quizzes-math-riddles-or-other-parlor-tricks) for the technical interview rigmarole.
 
 - [Problems](#problems)
+  - [Data structures and algorithms](#i-data-structures-and-algorithms)
+  - [Puzzles](#ii-puzzles)
 - [Style guide](#style-guide)
 - [Usage](#usage)
 - [Known issues](#known-issues)
@@ -15,18 +17,33 @@ Or, [parlour tricks](https://signalvnoise.com/posts/3071-why-we-dont-hire-progra
 
 All the problems are in [`src/`](src), and loosely organised into categories below.
 
-Each problem comprises a description, a solution program, and a test. (See [Usage](#usage) for instructions on how to build and run the tests.)
+Each problem comprises a brief description, a solution program, and a test. (See [Usage](#usage) for instructions on how to build and run the tests.)
 
-### I. Data structures
+### I. Data structures and algorithms
 
 #### Array/list
 
+- [Binary search](src/binary_search)
 - [Linked list](src/linked_list)
+
+#### Math
+
+- [Factorial](src/factorial)
+- [Fibonacci](src/fibonacci)
+- [Prime number](src/prime_number)
 
 #### Queue
 
 - [Queue](src/queue)
 - [Queue using stacks](src/queue_using_stacks)
+
+#### Sorting
+
+- [Bubble sort](src/bubble_sort)
+- [Insertion sort](src/insertion_sort)
+- [Merge sort](src/merge_sort)
+- [Quick sort](src/quick_sort)
+- [Selection sort](src/selection_sort)
 
 #### Stack
 
@@ -38,15 +55,20 @@ Each problem comprises a description, a solution program, and a test. (See [Usag
 - [Binary search tree](src/binary_search_tree)
 - [Tree traversal](src/tree_traversal)
 
-### II. Algorithms
+### II. Puzzles
 
-#### Sorting
+#### Array/list
 
-- [Bubble sort](src/bubble_sort)
-- [Insertion sort](src/insertion_sort)
-- [Merge sort](src/merge_sort)
-- [Quick sort](src/quick_sort)
-- [Selection sort](src/selection_sort)
+- [Array pair sum](src/array_pair_sum)
+- [Even-occurring element](src/even_occurring_element)
+- [Integer difference](src/integer_difference)
+- [Largest continuous sum](src/largest_continuous_sum)
+- [Longest common prefix](src/longest_common_prefix)
+- [Longest words](src/longest_words)
+- [Missing element](src/missing_element)
+- [Odd-occurring element](src/odd_occurring_element)
+- [Sum of list plus one](src/sum_of_list_plus_one)
+- [Sum of multiples](src/sum_of_multiples)
 
 #### String
 
@@ -65,26 +87,6 @@ Each problem comprises a description, a solution program, and a test. (See [Usag
 - [String format](src/string_format)
 - [String permutations](src/string_permutations)
 - [String rotation](src/string_rotation)
-
-#### Math
-
-- [Factorial](src/factorial)
-- [Fibonacci](src/fibonacci)
-- [Prime number](src/prime_number)
-
-#### Array/list
-
-- [Array pair sum](src/array_pair_sum)
-- [Binary search](src/binary_search)
-- [Even-occurring element](src/even_occurring_element)
-- [Integer difference](src/integer_difference)
-- [Largest continuous sum](src/largest_continuous_sum)
-- [Longest common prefix](src/longest_common_prefix)
-- [Longest words](src/longest_words)
-- [Missing element](src/missing_element)
-- [Odd-occurring element](src/odd_occurring_element)
-- [Sum of list plus one](src/sum_of_list_plus_one)
-- [Sum of multiples](src/sum_of_multiples)
 
 #### Other
 
