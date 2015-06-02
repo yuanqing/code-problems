@@ -1,15 +1,15 @@
-type 'a tree =
+type 'a node =
   | Empty
-  | Node of 'a * 'a tree * 'a tree
+  | Node of 'a * 'a node * 'a node
 
-let naive_pre_order (x:'a tree) : 'a list =
+let naive_pre_order (x:'a node) : 'a list =
   let rec aux x =
     match x with
       | Empty -> []
       | Node (v, l, r) -> v::(aux l)@(aux r) in
   aux x
 
-let pre_order (x:'a tree) : 'a list =
+let pre_order (x:'a node) : 'a list =
   let rec aux l rs =
     match l with
       | Empty ->
@@ -26,14 +26,14 @@ let pre_order (x:'a tree) : 'a list =
         v::(aux l (r::rs)) in
   aux x []
 
-let naive_post_order (x:'a tree) : 'a list =
+let naive_post_order (x:'a node) : 'a list =
   let rec aux x =
     match x with
       | Empty -> []
       | Node (v, l, r) -> (aux l)@(aux r)@[v] in
   aux x
 
-let post_order (x:'a tree) : 'a list =
+let post_order (x:'a node) : 'a list =
   let rec aux r ls vs =
     match r with
       | Empty ->
@@ -48,14 +48,14 @@ let post_order (x:'a tree) : 'a list =
       | Node (v, l, r) -> aux r (l::ls) (v::vs) in
   aux x [] []
 
-let naive_in_order (x:'a tree) : 'a list =
+let naive_in_order (x:'a node) : 'a list =
   let rec aux x =
     match x with
       | Empty -> []
       | Node (v, l, r) -> (aux l)@(v::(aux r)) in
   aux x
 
-let in_order (x:'a tree) : 'a list =
+let in_order (x:'a node) : 'a list =
   let rec aux l rs vs =
     match l with
       | Empty ->
@@ -76,7 +76,7 @@ let in_order (x:'a tree) : 'a list =
         aux l (r::rs) (v::vs) in
   aux x [] []
 
-let level_order (x:'a tree) : 'a list =
+let level_order (x:'a node) : 'a list =
   (* Initialise a `q` containing `x` ie. the root. *)
   let q = Queue.create () in
   let _ = Queue.add x q in
@@ -94,7 +94,7 @@ let level_order (x:'a tree) : 'a list =
           v::(aux q) in
   aux q
 
-let level_order_list (x:'a tree) : 'a list list =
+let level_order_list (x:'a node) : 'a list list =
   (* Initialise a `q` containing `x` ie. the root. *)
   let q = Queue.create () in
   let _ = Queue.add x q in
