@@ -12,11 +12,23 @@ Each folder contains the problem description, a solution program, and a test. Se
 
 ### Data structures
 
+#### Array/list
+
 - [Linked list](src/linked_list)
+
+#### Queue
+
 - [Queue](src/queue)
 - [Queue using stacks](src/queue_using_stacks)
+
+#### Stack
+
 - [Stack](src/stack)
 - [Stack using queues](src/stack_using_queues)
+
+#### Tree
+
+- [Binary search tree](src/binary_search_tree)
 - [Tree traversal](src/tree_traversal)
 
 ### Sorting
@@ -51,7 +63,7 @@ Each folder contains the problem description, a solution program, and a test. Se
 - [Fibonacci](src/fibonacci)
 - [Prime number](src/prime_number)
 
-### Array
+### Array/list
 
 - [Array pair sum](src/array_pair_sum)
 - [Binary search](src/binary_search)
@@ -73,14 +85,20 @@ Each folder contains the problem description, a solution program, and a test. Se
 ## Notes
 
 - Memoise/cache all the things! (Or at least when it is possible to do so, anyway.) The [`Hashtbl`](http://caml.inria.fr/pub/docs/manual-ocaml/libref/Hashtbl.html) module is your friend.
-- If we&rsquo;re writing a recursive function (which is most of the time), be sure to write it such that it is [tail recursive](https://ocaml.org/learn/tutorials/if_statements_loops_and_recursion.html#Tailrecursion).
+- If we&rsquo;re writing a recursive function (which should be most of the time), be sure to write it such that it is [tail recursive](https://ocaml.org/learn/tutorials/if_statements_loops_and_recursion.html#Tailrecursion).
+- Top-level functions should not be recursive. Instead, use an auxiliary recursive function named.
+- Annotate (arguments and return type) of all top-level functions.
 - Short-circuit execution by throwing an exception.
 - Avoid `ref` if possible.
 - Variable naming conventions:
-  - Lists &mdash; `xs`, `ys`&hellip;
-  - Item in a list &mdash; `x`, `y`&hellip;
-  - Auxiliary recursive functions &mdash; `aux`
-- Annotate top-level functions.
+  - Auxiliary recursive function &mdash; `aux`
+  - List &mdash; `xs`, `ys`&hellip;
+  - Items in a list &mdash; `x`, `y`&hellip;
+  - List for accumulating values &mdash; `acc`
+  - Binary tree &mdash; value `v` with a `l` child and a `r` child
+  - String &mdash; `str`, or `x`, `y`&hellip;
+  - Integer &mdash; `n`
+  - List/string length &mdash; `len`
 
 ## Usage
 
@@ -121,6 +139,14 @@ $ make binary_search/test
 ```
 
 Use `make binary_search/coverage` to also generate test coverage reports.
+
+### Clean
+
+To remove all compiled files and other debris:
+
+```
+$ make clean
+```
 
 ## Known issues
 
